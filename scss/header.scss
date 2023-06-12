@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body{
+   min-width: 100% ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 53px;
+    max-width: 90%;
+    /* margin: 20px auto; */
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 37px;
+
+        button{
+            width: 80px;
+            height: 32px;
+            background: #EAEAF9;
+            border-radius: 4px;
+            border: none;
+            font-weight: 500;
+            font-size: 13px;
+            color: #3333CC;
+        }
+    }
+
+    .search{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+
+        form{
+            display: flex;
+            align-items: center;
+            border: 1px solid #E2EAF1;
+            border-radius: 4px;
+            width: 698px;
+            height: 32px;
+            margin: 0px  37px ;
+             input{
+                width: 698px;
+                font-size: 13px;
+                border: none;
+                background-color: whitesmoke; 
+                padding-left: 15px;
+            }
+
+           
+        }
+
+    }
+
+
+    .right{
+        display: flex;
+        align-items: center;
+        gap: 21px;
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        h2{
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 12px;
+        }
+    }
+}
+
+
+.conta{
+    display: flex;
+    align-items: center;
+    gap: 220px;
+    margin-bottom: 50px;
+    .box{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    h4{
+        color: #4D4E59;
+        font-weight: 400;
+        font-size: 12px;
+    }
+    .right{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 20px 0px 30px 0px;
+    .dor_img{
+        display: flex;
+        align-items: center;
+
+    }
+}
+}
+
+.down{
+    display: flex;
+    align-items: center;
+ gap: 20px;
+    h4{
+        color: #4D4E59;
+        font-weight: 400;
+        font-size: 12px; 
+        margin-left: 340px;
+    }
+}
+

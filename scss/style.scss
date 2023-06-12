@@ -1,0 +1,249 @@
+.first{
+    width: 100%;
+    
+    
+    h3{
+        font-size: 32px;
+         margin: 84px 20px 10px;
+        color: #000000;
+    }
+
+    .items{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 100px 40px;
+        margin-top: 40px;
+        max-width: 90%;
+        
+    
+        .item_content{
+           width: 230px;
+           height:  389px;
+           
+           .im{
+            width: 230px;
+            height: 300px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            img{
+                width: 230px;
+                height: 230px;
+            }
+           }
+    
+           .txt{
+            width: 230px;
+            height: 50px;
+           }
+            
+    
+            .name_genre{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+    
+                button{
+                   
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+            }
+    
+            .reting{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+                h6{
+                    color: gray;
+                }
+            }
+        }
+    }
+
+    .more{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 60px;
+        
+        button{
+            width: 526px;
+            height: 32px;
+        background: #c2c2dc;
+        border-radius: 4px;
+        border: none;
+        color: rgb(0, 0, 0);
+        margin-bottom: 50px;
+        }
+    }
+
+    .cashback{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       margin: 30px 0 ;
+        img{
+            width: 100%;
+        }
+    }
+
+    .tv{
+        margin-bottom: 60px;
+    }
+}
+
+
+.favourite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main{
+   min-height: 80vh;
+}
+
+
+.fav{
+    color: red;
+    
+}
+
+.main_cont{
+  margin-top: 70px;
+    width: 1300px;
+      
+
+    .f_liyer{
+        display: flex;
+      
+       justify-content: space-between
+       ;
+        img{
+            width: 380px;
+            height: 506px;
+        }
+
+        .for_txt{
+            width: 818px;
+            margin-top: 30px;
+            
+            h1{
+                font-weight: 600;
+                font-size: 32px; 
+                margin-bottom: 30px;
+            }
+
+            h2{
+                margin: 30px 0px ;
+        }
+
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 89px;
+                height: 30px;
+                background-color: transparent;
+                border-radius: 3px;
+                border: 1px solid #ACACAC;
+               margin-bottom: 30px;
+            }
+
+            .discrip{
+                width: 700px;
+                margin: 26px 0;
+            }
+
+            .btnn{
+                
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                button{
+                    width: 176px;
+                    height: 32px;
+                }
+            }
+        }
+
+
+    }
+}
+
+
+.same{
+    margin: 50px 0px;
+
+
+.same_pro{
+    display: flex;
+    margin: 50px 0px 100px 0px;
+    gap: 30px;
+    .item_content{
+        width: 230px;
+        height:  389px;
+        
+        .im{
+         width: 230px;
+         height: 300px;
+         background-color: white;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 12px;
+         img{
+             width: 230px;
+             height: 230px;
+         }
+        }
+ 
+        .txt{
+         width: 230px;
+         height: 50px;
+        }
+         
+ 
+         .name_genre{
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+             width: 200px;
+             button{
+                
+                 border: none;
+                 display: flex;
+                 align-items: center;
+                 gap: 10px;
+             }
+             
+         }
+ 
+         .reting{
+             display: flex;
+             align-items: center;
+             gap: 5px;
+             img{
+                 width: 20px;
+                 height: 20px;
+             }
+             h6{
+                 color: gray;
+             }
+         }
+     }
+    
+}}
