@@ -1,4 +1,4 @@
-import { headerCreate, reload,  footer} from "./header";   
+import { headerCreate,  footer} from "./header";   
 
 
 let header = document.querySelector('header')
@@ -6,6 +6,8 @@ let foot = document.querySelector('footer')
 let con = document.querySelector(".items")
 let tvcon = document.querySelector(".tv")
 let txt = document.querySelectorAll(".textt")
+
+
 headerCreate(header)
 footer(foot)
 let first_section_moreBtn = document.querySelectorAll('.more button')
@@ -66,9 +68,10 @@ const getData = () => {
 }
 
 getData()
-let place_c = document.querySelector(".cart_place")
-/* let cart = []
-console.log(cart)
+
+
+let toCartId = JSON.parse(localStorage.getItem("liked")) || [];
+console.log(toCartId)
 function reload(arr, place) {
     place.innerHTML = ''
 	for (let item of arr) {
@@ -114,21 +117,43 @@ function reload(arr, place) {
         place.append(cont)
       
 
-
-        spn.onclick = () => {
-            if (cart.includes(item.id)) {
-                spn.classList.remove('fav')
-                cart = cart.filter(el => el !== item.id)
-            } else {
-                spn.classList.add('fav')
-                cart.push(item.id)
-            }
-
-            reload_cart(cart, place_c)
-           
-        }
+        spon.onclick = () => {
+			if (toCartId.includes(item.id)) {
+				toCartId = toCartId.filter((el) => el !== item.id);
+				localStorage.setItem("liked", JSON.stringify(toCartId));
+                spon.classList.remove("car_act")
+			} else {
+				toCartId.push(item.id);
+				localStorage.setItem("liked", JSON.stringify(toCartId));
+                spon.classList.add("car_act")
+			}
+		};
 
 
        
 	}
-} */
+} 
+
+let category = document.querySelector(".category")
+let cat = document.querySelector(".con")
+let modal = document.querySelector(".modal")
+let cdn = document.querySelector(".cdn")
+category.onclick = () => {
+   cat.classList.toggle("y")
+   modal.classList.toggle("show")
+   header.classList.toggle("h_act")
+   cdn.classList.remove("hide")
+   
+}
+
+
+let sear = document.querySelector(".search")
+
+sear.onclick = () => {
+    cat.classList.toggle("y")
+    modal.classList.toggle("show")
+    header.classList.toggle("h_act")
+    cdn.classList.add("hide")
+}
+
+
