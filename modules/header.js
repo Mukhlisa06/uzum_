@@ -35,7 +35,8 @@ export function headerCreate(place) {
             </div>
     `
 }
-
+let toCartId = JSON.parse(localStorage.getItem("liked")) || [];
+let toLike  = JSON.parse(localStorage.getItem("favourite")) || [];
  export function reload(arr, place) {
     place.innerHTML = ''
 	for (let item of arr) {
@@ -84,20 +85,30 @@ export function headerCreate(place) {
         div.append(spn)
         div2.append(spon)
 
-        let cart = []
-        spn.onclick = () => {
-            if (cart.includes(item.id)) {
-                spn.classList.remove('fav')
-                cart = cart.filter(el => el !== item.id)
-                console.log(cart)
-            } else {
-                spn.classList.add('fav')
-                cart.push(item.id)
-            }
-       reloadFav(cart)
-        }
-
        
+        spon.onclick = () => {
+			if (toCartId.includes(item.id)) {
+				toCartId = toCartId.filter((el) => el !== item.id);
+				localStorage.setItem("liked", JSON.stringify(toCartId));
+                spon.classList.remove("car_act")
+			} else {
+				toCartId.push(item.id);
+				localStorage.setItem("liked", JSON.stringify(toCartId));
+                spon.classList.add("car_act")
+			}
+		};
+
+        spn.onclick = () => {
+			if (toLike.includes(item.id)) {
+				toLike = toLike.filter((el) => el !== item.id);
+				localStorage.setItem("favourite", JSON.stringify(toLike));
+                spn.classList.remove("fav")
+			} else {
+				toLike.push(item.id);
+				localStorage.setItem("favourite", JSON.stringify(toLike));
+                spn.classList.add("fav")
+			}
+		};
 	}
 }  
 

@@ -8,6 +8,7 @@ let tvcon = document.querySelector(".tv")
 let txt = document.querySelectorAll(".textt")
 
 
+
 headerCreate(header)
 footer(foot)
 let first_section_moreBtn = document.querySelectorAll('.more button')
@@ -15,6 +16,7 @@ let black = document.querySelector(".bl")
 let tvcart = []
 let blackFri = []
 let url = "http://localhost:9120/goods";
+
 const getData = () => {
     fetch(url)
         .then(msg => msg.json())
@@ -65,13 +67,16 @@ const getData = () => {
           })
 
          })
+
+
 }
 
 getData()
 
 
 let toCartId = JSON.parse(localStorage.getItem("liked")) || [];
-console.log(toCartId)
+let toLike  = JSON.parse(localStorage.getItem("favourite")) || [];
+console.log(toLike)
 function reload(arr, place) {
     place.innerHTML = ''
 	for (let item of arr) {
@@ -129,6 +134,18 @@ function reload(arr, place) {
 			}
 		};
 
+        spn.onclick = () => {
+			if (toLike.includes(item.id)) {
+				toLike = toLike.filter((el) => el !== item.id);
+				localStorage.setItem("favourite", JSON.stringify(toLike));
+                spn.classList.remove("fav")
+			} else {
+				toLike.push(item.id);
+				localStorage.setItem("favourite", JSON.stringify(toLike));
+                spn.classList.add("fav")
+			}
+		};
+
 
        
 	}
@@ -156,4 +173,8 @@ sear.onclick = () => {
     cdn.classList.add("hide")
 }
 
+
+
+let search = document.querySelector(".modal__dialog  .inp")
+let inputss = document.querySelector(".search input")
 

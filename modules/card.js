@@ -7,7 +7,7 @@ let foot = document.querySelector("footer")
 headerCreate(header)
 footer(foot)
 
-let caa = document.querySelector(".cart_item")
+
 let cart_item = document.querySelector(".cart_item .right")
 let data = JSON.parse(localStorage.getItem('liked')) || []
 let url = "http://localhost:9120/goods";
@@ -100,3 +100,4 @@ function reloadG(arr, place) {
 
 
 }
+

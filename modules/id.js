@@ -12,6 +12,10 @@ let dis = document.querySelector(".discrip")
 let plus = document.querySelector(".plus")
 let count = document.querySelector(".count")
 let minus = document.querySelector(".minus")
+let ca = document.querySelector(".card")
+let like = document.querySelector(".like")
+let toCartId = JSON.parse(localStorage.getItem("liked")) || [];
+let toLike  = JSON.parse(localStorage.getItem("favourite")) || [];
 let url = "http://localhost:9120/goods";
 const getData = () => {
     fetch(url)
@@ -29,6 +33,30 @@ const getData = () => {
                     pl.push(item)
                   reload(pl.slice(0,5), con)
                 }
+
+                ca.onclick = () => {
+                    if (toCartId.includes(item.id)) {
+                        toCartId = toCartId.filter((el) => el !== item.id);
+                        localStorage.setItem("liked", JSON.stringify(toCartId));
+                        ca.classList.remove("car_act")
+                    } else {
+                        toCartId.push(item.id);
+                        localStorage.setItem("liked", JSON.stringify(toCartId));
+                        ca.classList.add("car_act")
+                    }
+                }
+    
+                like.onclick = () => {
+                    if (toLike.includes(item.id)) {
+                        toLike = toLike.filter((el) => el !== item.id);
+                        localStorage.setItem("favourite", JSON.stringify(toLike));
+                        like.classList.remove("fav")
+                    } else {
+                        toLike.push(item.id);
+                        localStorage.setItem("favourite", JSON.stringify(toLike));
+                        like.classList.add("fav")
+                    }
+                }
             }
 
             plus.onclick = () => {
@@ -39,9 +67,10 @@ const getData = () => {
     
             minus.onclick = () => {
                 count.innerHTML--
-              pric.innerHTML =  Math.floor(pric.innerHTML) -  Math.floor(id.price)
+                pric.innerHTML =  Math.floor(pric.innerHTML) -  Math.floor(id.price)
             }
             
+           
            
 
         })}

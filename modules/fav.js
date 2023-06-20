@@ -1,12 +1,44 @@
-import { headerCreate,   footer} from "./header";  
+import { headerCreate,  footer} from "./header";  
+import axios from "axios";
 let header = document.querySelector('header')
 let foot = document.querySelector('footer')
-let con = document.querySelector(".cart_place")
+
 headerCreate(header)
 footer(foot)
 
- function reloadFav(arr) {
-    con.innerHTML = ''
+let data = JSON.parse(localStorage.getItem('favourite')) || []
+let url = "http://localhost:9120/goods";
+let cons = document.querySelector(".smth")
+console.log(data)
+let favCard = []
+let tem = []
+
+
+function cartFetch(arr) {
+    axios.get(url)
+
+    .then(res => {
+        favCard = []
+
+
+        for(let item of res.data) {
+            for(let id of arr) {
+                if(item.id === id) {
+                    favCard.push(item)
+                }
+            }
+        }
+        reloadFav(favCard, cons)
+
+    })
+}
+
+cartFetch(data)
+let toCartId = JSON.parse(localStorage.getItem("liked")) || [];
+ function reloadFav(arr, place) {
+    tem = []
+    place.innerHTML = ''
+    
 	for (let item of arr) {
 	    let cont = document.createElement("div")
         let img = document.createElement("img")
@@ -21,15 +53,13 @@ footer(foot)
         let divfori = document.createElement("div")
         let txt = document.createElement("div")
         let spn = document.createElement("span")
-        let div = document.createElement("div")
-        let div2 = document.createElement("div")
+        let a = document.createElement("a")
 
-        div.classList.add("h")
-        div2.classList.add("cart")
+     
         txt.classList.add("txt")
         divfori.classList.add("im")
         ret.classList.add("reting")
-        imret.src = "./img/star.svg"
+        imret.src = "/img/star.svg"
         h35.innerHTML = item.rating
         spon.classList.add("material-symbols-outlined")
         spn.classList.add("material-symbols-outlined")
@@ -40,19 +70,33 @@ footer(foot)
         ganre.classList.add("name_genre")
         p.innerHTML = item.title
         p2.innerHTML = item.price + " " + "сум"
-
-
-       
+        a.href = "/pages/id.html?id=" + item.id
+        spn.classList.add("fav")
+        a.append(img)
         txt.append(p)
-        divfori.append(img)
+        divfori.append(a)
         ret.append(imret,h35)
         cont.append(divfori,txt,ret,ganre)
         ganre.append( p2,btn)
-        btn.append(div,div2)
+        btn.append(spn,spon)
         place.append(cont)
-        div.append(spn)
-        div2.append(spon)
-        con.append(cont)
-       
+
+        spn.onclick = () => {
+            data = data.filter(el => el != item.id)
+            localStorage.setItem('favourite', JSON.stringify(data))
+            cartFetch(data)
+        }
+
+        spon.onclick = () => {
+			if (toCartId.includes(item.id)) {
+				toCartId = toCartId.filter((el) => el !== item.id);
+				localStorage.setItem("liked", JSON.stringify(toCartId));
+                spon.classList.remove("car_act")
+			} else {
+				toCartId.push(item.id);
+				localStorage.setItem("liked", JSON.stringify(toCartId));
+                spon.classList.add("car_act")
+			}
+		};
 	}
 }
